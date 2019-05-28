@@ -6,7 +6,7 @@ public class linear_search {
      * @param item   The Item to be Seached for
      * @return       index of the item if FOUND else -1    
      */
-    public static <T extends Comparable<T>> int linearSearch(T[] array, int item) {
+    public static <T extends Comparable<T>> int linearSearch(T[] array, T item) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == item) {
                 return i;
