@@ -18,7 +18,6 @@ public class bubble_sort {
     }
 
     public static void main(String[] args) {
-        Integer[] unsorted = {5, 15, 8, 4, 9, 63, 88};
         String[] strings = {"c", "a", "e", "b", "d"};
         bubbleSort(strings);
         for (int i = 0; i < strings.length; i++) {

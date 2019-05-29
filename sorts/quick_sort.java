@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class quick_sort {
 
     /**
@@ -70,7 +68,7 @@ public class quick_sort {
     private static <T extends Comparable<T>> boolean less(T a, T b) {
         return a.compareTo(b) < 0;
     }
-    
+
     public static void main(String[] args) {
         Integer[] a = {1, 6, 8, 4, 2, 5, 88, 7, 60, 39, 9, 42, 7, 5, 21, 3};
         quickSort(a, 0, a.length - 1);
