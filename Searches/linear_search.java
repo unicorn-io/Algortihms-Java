@@ -15,5 +15,6 @@ public class linear_search {
                 return -1;
             }
         }
+        return 0;
     }
 }
