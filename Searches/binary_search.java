@@ -3,6 +3,7 @@ public class binary_search {
 
     /**
      *               Generic Binary Search Algorithm
+     *
      * @param array  The SORTED array to be looked in.
      * @param item   The item to be searched for
      * @return       returns the index if FOUND else -1
