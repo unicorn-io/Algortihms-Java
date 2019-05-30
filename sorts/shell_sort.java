@@ -31,7 +31,7 @@ public class shell_sort {
      * 
      * @param array   operable array
      * @param i       first index  
-     * @param j       secind index 
+     * @param j       second index 
      */
     private static <T extends Comparable<T>> void exch(T[] array, int i, int j) {
         T temp = array[i];
