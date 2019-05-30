@@ -2,6 +2,7 @@ public class linear_search {
     
     /**
      *               Generic Linear Search Method
+     *
      * @param array  The array to be Searched in
      * @param item   The Item to be Seached for
      * @return       index of the item if FOUND else -1    
