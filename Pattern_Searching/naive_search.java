@@ -6,8 +6,8 @@ public class naive_search {
      *                 continues to search.. O(N*M)
      *                 Prints the index found
      *    
-     * @param str      The String to be looked in.
-     * @param value    The String to be searched for.
+     * @param text      The String to be looked in.
+     * @param pat    The String to be searched for.
      */
     public static void naiveSearch(String text, String pat) {
         int len = test.length();
