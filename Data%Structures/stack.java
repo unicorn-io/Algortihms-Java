@@ -49,9 +49,9 @@ public class stack<T> {
     /**
      *  Pops the top most element
      */
-    public void pop() {
-      stk[tracker] = null;
+    public T pop() {
       tracker--;
+      return stk[tracker + 1];
     }
   
     /**
