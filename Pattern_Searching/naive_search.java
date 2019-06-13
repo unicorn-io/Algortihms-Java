@@ -10,7 +10,7 @@ public class naive_search {
      * @param pat    The String to be searched for.
      */
     public static void naiveSearch(String text, String pat) {
-        int len = test.length();
+        int len = text.length();
         int lenV = pat.length();
         int found = 0;
 
