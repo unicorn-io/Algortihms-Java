@@ -63,7 +63,7 @@ public class heap_sort {
     }
 
     /**
-     *           checks wheater a element is less than other
+     *           checks whether a element is less than other
      * 
      * @param a  First Item
      * @param b  Second Item
