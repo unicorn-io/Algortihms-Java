@@ -55,15 +55,11 @@ public class BinarSearchTree<Key extends Comparable<Key>, Val> {
 
         private Node put(final Node x, final Key key, final Val val) {
 
-            if (x == null)
-                return new Node(key, val);
+            if (x == null) return new Node(key, val);
             final int cmp = key.compareTo(x.Key);
-            if (cmp > 0)
-                put(x.right, key, val);
-            if (cmp < 0)
-                put(x.left, key, val);
-            if (cmp == 0)
-                x.Val = val;
+            if (cmp > 0) put(x.right, key, val);
+            if (cmp < 0) put(x.left, key, val);
+            if (cmp == 0) x.Val = val;
             x.count = 1 + size(x.left) + size(x.right);
             return x;
         }
@@ -104,9 +100,19 @@ public class BinarSearchTree<Key extends Comparable<Key>, Val> {
         }
 
         private Node deleteMin(Node x) {
-            if (x.left == null) return x.right;
             x.left = deleteMin(x.left);
             x.count = 1 + size(x.left) + size(x.right);
+            return x;
+        }
+
+        /**
+         * @param x Node corresposding to a sub-tree
+         * @return the minimum value in the subtree specified
+         */
+        public Node min(Node x) {
+            while (x.left != null) {
+                x = x.left;
+            }
             return x;
         }
 
