@@ -40,6 +40,10 @@ public class BinarSearchTree<Key extends Comparable<Key>, Val> {
             return null;
         }
 
+        public boolean contains(Key key) {
+            return get(key) != null;
+        }
+
         /**
          * Puts a new value to a existing tree or the empty Tree for an empty tree the
          * private method just initializes a new node and for the others, the root is
@@ -152,6 +156,19 @@ public class BinarSearchTree<Key extends Comparable<Key>, Val> {
         }
 
         /**
+         * Application:
+         * Used to get the 1d range count 
+         * 
+         * @param lo the lower range
+         * @param hi the higher range
+         * @return the number of numbers in the specified range in a 1d array
+         */
+        public int size(int lo, int hi) {
+            if (contains(hi)) return rank(hi) - rank(lo) + 1;
+            else return rank(hi) - rank(lo);
+        }
+
+        /**
          * To find out how many keys < k
          * 
          * @param key k
@@ -165,7 +182,7 @@ public class BinarSearchTree<Key extends Comparable<Key>, Val> {
             if (x == null) return 0;
             int cmp = key.compareTo(x.key);
             if (cmp < 0) return rank(key, x.left);
-            else if (cmp > 0) return 1 + size(x.left) + size(x.right);
+            else if (cmp > 0) return 1 + size(x.left) + rank(key, x.right);
             else return size(x.left);
         }
 
@@ -183,5 +200,29 @@ public class BinarSearchTree<Key extends Comparable<Key>, Val> {
             inorder(x.left, q);
             q.enqueue(x.key);
             inorder(x.right, q);
+        }
+
+        /**
+         * Returns all keys in the symbol table in the given range,
+         * as an {@code Iterable}.
+         *
+         * @param  lo minimum endpoint
+         * @param  hi maximum endpoint
+         * @return all keys in the symbol table between {@code lo} 
+         *         (inclusive) and {@code hi} (inclusive)
+         */
+        public Iterable<Key> keys (Key lo, Key hi) {
+            Queue<Key> q = new Queue<Key>();
+            keys(root, q, lo, hi);
+            return q;
+        }
+
+        private void keys(Node x, Queue q, Key lo, Key hi) {
+            if (x == null) return;
+            int cmplo = lo.compareTo(x.key);
+            int cmphi = hi.compareTo(x.key);
+            if (cmplo < 0) keys(x.left, q, lo, hi);
+            if (cmplo <= 0 && cmphi >= 0) q.enqueue(x.key);
+            if (cmphi > 0) keys(x.right, q, lo, hi);
         }
 }
