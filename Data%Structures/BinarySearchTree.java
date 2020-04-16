@@ -30,12 +30,9 @@ public class BinarSearchTree<Key extends Comparable<Key>, Val> {
             Node temp = root;
             while (temp != null) {
                 final int cmp = key.compareTo(temp.Key);
-                if (cmp > 0)
-                    temp = temp.right;
-                else if (cmp < 0)
-                    temp = temp.left;
-                else if (cmp == 0)
-                    return temp.Val;
+                if (cmp > 0) temp = temp.right;
+                else if (cmp < 0) temp = temp.left;
+                else if (cmp == 0) return temp.Val;
             }
             return null;
         }
