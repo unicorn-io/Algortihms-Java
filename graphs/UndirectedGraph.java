@@ -48,4 +48,8 @@ public class UndirectedGraph {
     public int E() {
         return 2*E;
     }
+
+    public int degree(int v) {
+        return lis[v].size();
+    }
 }

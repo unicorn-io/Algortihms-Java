@@ -1,36 +1,36 @@
-import java.util.Queue;
 import java.util.LinkedList;
+import java.util.Queue;
 
-public class UndirectedBFS {
-    private int[] edgeTo;
-    private boolean[] marked;
-    private int[] distTo;
+public class DirectedBFS {
     
+    private boolean[] marked;
+    private int[] edgeTo;
+    private int[] distTo;
 
-    public UndirectedBFS(UndirectedGraph G, int s) {
+    public DirectedBFS(DirectedGraph G, int s) {
         edgeTo = new int[G.V()];
-        marked = new boolean[G.V()];
         distTo = new int[G.V()];
+        marked = new boolean[G.V()];
         bfs(G, s);
     }
 
-    private void bfs(UndirectedGraph G, int s) {
+    private void bfs(DirectedGraph G, int v) {
         Queue<Integer> q = new LinkedList<>();
-        q.offer(s);
-        distTo[s] = 0;
-        marked[s] = true;
+        q.offer(v);
+        marked[v] = true;
+        distTo[v] = 0;
         while (!q.isEmpty()) {
-            int v = q.poll();
-            for (int w : G.adj(v)) {
+            int tmp = q.poll();
+            for (int w : G.adj(tmp)) {
                 if (!marked[w]) {
                     q.offer(w);
                     marked[w] = true;
                     edgeTo[w] = v;
-                    distTo[w] = distTo[v]+1;
+                    distTo[w] = distTo[tmp] + 1;
                 }
             }
         }
-    
+        
     }
 
     public boolean isMarked(int v) {
@@ -44,4 +44,5 @@ public class UndirectedBFS {
     public int distTo(int v) {
         return distTo[v];
     }
+
 }
