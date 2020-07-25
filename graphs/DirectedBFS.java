@@ -43,6 +43,6 @@ public class DirectedBFS {
 
     public int distTo(int v) {
         return distTo[v];
-    }
+    }   
 
 }
